@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Solent School</title>
+    <title>About - Solent University</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
         }
-        header {
+        header{
             background-image: url('images/header-background.jpg');
-            color: white;
+            color:black;
             padding: 20px;
             text-align: center;
         }
@@ -94,8 +94,8 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="images/QA_Solent_Logo_Red-scaled.jpg" alt="Solent School Logo">
-            <h1>Solent School</h1>
+            <img src="images/QA_Solent_Logo_Red-scaled.jpg" alt="Solent university Logo">
+            <h1>Solent university</h1>
         </div>
         <nav>
             <ul>
@@ -110,18 +110,19 @@
     <main>
         <section class="about-section">
             <div class="column light-purple"> <!-- Add the light-purple class here -->
-                <img src="images/images.jpeg" alt="School History Image">
-                <h3>School History</h3>
-                <p>Solent School was established in 1990 with a mission to provide excellent education to students in the local community. Over the years, it has grown into a well-respected institution known for its commitment to academic excellence and student development.</p>
+                <img src="images/images.jpeg" alt="university History Image">
+                <h3>university History</h3>
+                <p>Solent university was established in 1990 with a mission to provide excellent education to students in the local community. Over the years, it has grown into a well-respected institution known for its commitment to academic excellence and student development.</p>
             </div>
             <div class="column light-blue"> <!-- Add the light-blue class here -->
-                <img src="images/coat-of-arms.x45fb667a.webp" alt="School Ambitions Image">
-                <h3>School Ambitions</h3>
+                <img src="images/68463592406.jpeg" alt="university Ambitions Image">
+                <h3>university Ambitions</h3>
                 <p>Our ambition is to foster a learning environment that encourages students to achieve their full potential. We aim to inspire and challenge our students to be innovative thinkers, confident communicators, and responsible global citizens.</p>
             </div>
             <div class="column light-purple"> <!-- Add the light-purple class here -->
+                <img src="images/Gallery--Southampton-Solent-University-gallery-3.jpg" alt="university Ambitions Image">
                 <h3 id="sample-text-title">Sample Text</h3>
-                <p id="sample-text-content">Solent School is dedicated to providing a comprehensive education that includes a variety of extracurricular activities, advanced placement courses, and community service opportunities. Our goal is to ensure that every student graduates with the skills and knowledge necessary to succeed in their future endeavors.</p>
+                <p id="sample-text-content">Solent university is dedicated to providing a comprehensive education that includes a variety of extracurricular activities, advanced placement courses, and community service opportunities. Our goal is to ensure that every student graduates with the skills and knowledge necessary to succeed in their future endeavors.</p>
             </div>
         </section>
 
@@ -195,14 +196,9 @@
                 </p>
             </div>
             <div class="image">
-                <img src="images/UniPostCover--Solent-University.jpg" alt="School Building">
-            </div>
-        </div>
-        <div class="image">
-            <img src="images/Gallery--Southampton-Solent-University-gallery-3.jpg" alt="School Building">
-            <!-- Dark brown strips -->
-        </div>
-    </div>
+                <img src="images/UniPostCover--Solent-University.jpg" alt="university Building">
+            </div>        
+
     <div class="row bottom-row">
         <div class="column big-column">
             <!-- Content for the big column (75%) goes here -->
@@ -219,10 +215,47 @@
             <p>General enquiries: Telephone: 023 8201 3000</p>
             <p>Solent University, East Park Terrace, Southampton, SO14 0YN</p>
             <p>Clearing enquiries: Telephone: 023 8189 2556</p>
-            <p>Visitor Counter: <span id="footer-visitor-count"></span></p>
+            <div id="footer-visitor-count">Visitor count: <span id="visitor-count">0</span></div>
         </div>
         <div class="footer-column">
-            <p>About</p>
+            <p>About</p><!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>My Website</title>
+                <style>
+                    body {
+                        text-align: center;
+                        background-color: #f4f4f4;
+                        font-family: Arial, sans-serif;
+                    }
+                    .visitor-count {
+                        margin-top: 20px;
+                        font-size: 24px;
+                        color: #333;
+                    }
+                </style>
+            </head>
+            <body>
+                <h1>Welcome to My Website</h1>
+                <div class="visitor-count">Visitor Count: <span id="visitor-count">Loading...</span></div>
+                <script>
+                    async function updateVisitorCount() {
+                        try {
+                            const response = await fetch('/visitor-count');
+                            const data = await response.json();
+                            document.getElementById('visitor-count').textContent = data.count;
+                        } catch (error) {
+                            console.error('Error fetching visitor count:', error);
+                        }
+                    }
+            
+                    updateVisitorCount();
+                </script>
+            </body>
+            </html>
+            
             <select id="footer-language-select">
                 <option value="en">English</option>
                 <option value="ar">Arabic</option>
@@ -244,46 +277,55 @@
     </footer>
 
     <script>
+        // Example function to simulate visitor count
+function updateVisitorCount() {
+    // In a real scenario, you would fetch this count from a server
+    const count = Math.floor(Math.random() * 1000); // Simulating visitor count
+    document.getElementById('visitor-count').textContent = count;
+}
+
+// Call the function to update visitor count
+updateVisitorCount();
         const translations = {
             en: {
                 "sample-text-title": "Sample Text",
-                "sample-text-content": "Solent School is dedicated to providing a comprehensive education that includes a variety of extracurricular activities, advanced placement courses, and community service opportunities. Our goal is to ensure that every student graduates with the skills and knowledge necessary to succeed in their future endeavors.",
-                "school-history-title": "School History",
-                "school-history-content": "Solent School was established in 1990 with a mission to provide excellent education to students in the local community. Over the years, it has grown into a well-respected institution known for its commitment to academic excellence and student development.",
-                "school-ambitions-title": "School Ambitions",
-                "school-ambitions-content": "Our ambition is to foster a learning environment that encourages students to achieve their full potential. We aim to inspire and challenge our students to be innovative thinkers, confident communicators, and responsible global citizens."
+                "sample-text-content": "Solent university is dedicated to providing a comprehensive education that includes a variety of extracurricular activities, advanced placement courses, and community service opportunities. Our goal is to ensure that every student graduates with the skills and knowledge necessary to succeed in their future endeavors.",
+                "university-history-title": "university History",
+                "university-history-content": "Solent university was established in 1990 with a mission to provide excellent education to students in the local community. Over the years, it has grown into a well-respected institution known for its commitment to academic excellence and student development.",
+                "university-ambitions-title": "university Ambitions",
+                "university-ambitions-content": "Our ambition is to foster a learning environment that encourages students to achieve their full potential. We aim to inspire and challenge our students to be innovative thinkers, confident communicators, and responsible global citizens."
             },
             fr: {
                 "sample-text-title": "Texte Exemple",
                 "sample-text-content": "L'école Solent s'engage à offrir une éducation complète comprenant une variété d'activités parascolaires, de cours avancés et d'opportunités de service communautaire. Notre objectif est de s'assurer que chaque élève obtient son diplôme avec les compétences et les connaissances nécessaires pour réussir dans ses futures entreprises.",
-                "school-history-title": "Histoire de l'école",
-                "school-history-content": "L'école Solent a été fondée en 1990 avec pour mission de fournir une éducation excellente aux étudiants de la communauté locale. Au fil des ans, elle est devenue une institution respectée, connue pour son engagement envers l'excellence académique et le développement des étudiants.",
-                "school-ambitions-title": "Ambitions de l'école",
-                "school-ambitions-content": "Notre ambition est de favoriser un environnement d'apprentissage qui encourage les étudiants à atteindre leur plein potentiel. Nous visons à inspirer et à défier nos étudiants à être des penseurs innovants, des communicateurs confiants et des citoyens mondiaux responsables."
+                "university-history-title": "Histoire de l'école",
+                "university-history-content": "L'école Solent a été fondée en 1990 avec pour mission de fournir une éducation excellente aux étudiants de la communauté locale. Au fil des ans, elle est devenue une institution respectée, connue pour son engagement envers l'excellence académique et le développement des étudiants.",
+                "university-ambitions-title": "Ambitions de l'école",
+                "university-ambitions-content": "Notre ambition est de favoriser un environnement d'apprentissage qui encourage les étudiants à atteindre leur plein potentiel. Nous visons à inspirer et à défier nos étudiants à être des penseurs innovants, des communicateurs confiants et des citoyens mondiaux responsables."
             },
             ar: {
                 "sample-text-title": "نص نموذجي",
                 "sample-text-content": "تلتزم مدرسة سولنت بتقديم تعليم شامل يتضمن مجموعة متنوعة من الأنشطة اللامنهجية والدورات المتقدمة وفرص الخدمة المجتمعية. هدفنا هو ضمان أن يتخرج كل طالب بالمهارات والمعرفة اللازمة للنجاح في مساعيه المستقبلية.",
-                "school-history-title": "تاريخ المدرسة",
-                "school-history-content": "تأسست مدرسة سولنت في عام 1990 بهدف تقديم تعليم ممتاز للطلاب في المجتمع المحلي. على مر السنين، نمت لتصبح مؤسسة محترمة ومعروفة بالتزامها بالتميز الأكاديمي وتطوير الطلاب.",
-                "school-ambitions-title": "طموحات المدرسة",
-                "school-ambitions-content": "هدفنا هو تعزيز بيئة تعليمية تشجع الطلاب على تحقيق إمكاناتهم الكاملة. نهدف إلى إلهام وتحدي طلابنا ليكونوا مفكرين مبتكرين ومتواصلين واثقين ومواطنين عالميين مسؤولين."
+                "university-history-title": "تاريخ المدرسة",
+                "university-history-content": "تأسست مدرسة سولنت في عام 1990 بهدف تقديم تعليم ممتاز للطلاب في المجتمع المحلي. على مر السنين، نمت لتصبح مؤسسة محترمة ومعروفة بالتزامها بالتميز الأكاديمي وتطوير الطلاب.",
+                "university-ambitions-title": "طموحات المدرسة",
+                "university-ambitions-content": "هدفنا هو تعزيز بيئة تعليمية تشجع الطلاب على تحقيق إمكاناتهم الكاملة. نهدف إلى إلهام وتحدي طلابنا ليكونوا مفكرين مبتكرين ومتواصلين واثقين ومواطنين عالميين مسؤولين."
             },
             zh: {
                 "sample-text-title": "示例文本",
                 "sample-text-content": "索伦特学校致力于提供全面的教育，包括各种课外活动、预备课程和社区服务机会。我们的目标是确保每个学生都能掌握必要的技能和知识，顺利毕业并在未来取得成功。",
-                "school-history-title": "学校历史",
-                "school-history-content": "索伦特学校成立于1990年，旨在为当地社区的学生提供优质教育。多年来，学校发展成为一个备受尊敬的机构，以其对学术卓越和学生发展的承诺而闻名。",
-                "school-ambitions-title": "学校抱负",
-                "school-ambitions-content": "我们的目标是营造一个学习环境，鼓励学生充分发挥其潜力。我们旨在激励和挑战我们的学生成为创新思想家、自信的沟通者和负责任的全球公民。"
+                "university-history-title": "学校历史",
+                "university-history-content": "索伦特学校成立于1990年，旨在为当地社区的学生提供优质教育。多年来，学校发展成为一个备受尊敬的机构，以其对学术卓越和学生发展的承诺而闻名。",
+                "university-ambitions-title": "学校抱负",
+                "university-ambitions-content": "我们的目标是营造一个学习环境，鼓励学生充分发挥其潜力。我们旨在激励和挑战我们的学生成为创新思想家、自信的沟通者和负责任的全球公民。"
             },
             hi: {
                 "sample-text-title": "नमूना पाठ",
                 "sample-text-content": "सोलेंट स्कूल विभिन्न पाठ्येतर गतिविधियों, उन्नत प्लेसमेंट पाठ्यक्रमों और सामुदायिक सेवा के अवसरों सहित व्यापक शिक्षा प्रदान करने के लिए समर्पित है। हमारा लक्ष्य यह सुनिश्चित करना है कि हर छात्र आवश्यक कौशल और ज्ञान के साथ स्नातक हो जो उनके भविष्य के प्रयासों में सफल होने के लिए आवश्यक है।",
-                "school-history-title": "स्कूल का इतिहास",
-                "school-history-content": "सोलेंट स्कूल की स्थापना 1990 में स्थानीय समुदाय के छात्रों को उत्कृष्ट शिक्षा प्रदान करने के मिशन के साथ की गई थी। वर्षों से, यह एक सम्मानित संस्था बन गई है जो अकादमिक उत्कृष्टता और छात्र विकास के प्रति अपनी प्रतिबद्धता के लिए जानी जाती है।",
-                "school-ambitions-title": "स्कूल की महत्वाकांक्षाएँ",
-                "school-ambitions-content": "हमारी महत्वाकांक्षा एक ऐसा शिक्षण वातावरण विकसित करना है जो छात्रों को अपनी पूरी क्षमता तक पहुँचने के लिए प्रोत्साहित करे। हमारा लक्ष्य अपने छात्रों को नवोन्मेषी विचारक, आत्मविश्वासी संप्रेषक और जिम्मेदार वैश्विक नागरिक बनने के लिए प्रेरित करना और चुनौती देना है।"
+                "university-history-title": "स्कूल का इतिहास",
+                "university-history-content": "सोलेंट स्कूल की स्थापना 1990 में स्थानीय समुदाय के छात्रों को उत्कृष्ट शिक्षा प्रदान करने के मिशन के साथ की गई थी। वर्षों से, यह एक सम्मानित संस्था बन गई है जो अकादमिक उत्कृष्टता और छात्र विकास के प्रति अपनी प्रतिबद्धता के लिए जानी जाती है।",
+                "university-ambitions-title": "स्कूल की महत्वाकांक्षाएँ",
+                "university-ambitions-content": "हमारी महत्वाकांक्षा एक ऐसा शिक्षण वातावरण विकसित करना है जो छात्रों को अपनी पूरी क्षमता तक पहुँचने के लिए प्रोत्साहित करे। हमारा लक्ष्य अपने छात्रों को नवोन्मेषी विचारक, आत्मविश्वासी संप्रेषक और जिम्मेदार वैश्विक नागरिक बनने के लिए प्रेरित करना और चुनौती देना है।"
             }
         };
 
@@ -294,10 +336,10 @@
             if (translation) {
                 document.getElementById('sample-text-title').innerText = translation['sample-text-title'];
                 document.getElementById('sample-text-content').innerText = translation['sample-text-content'];
-                document.querySelector('.column:nth-child(1) h3').innerText = translation['school-history-title'];
-                document.querySelector('.column:nth-child(1) p').innerText = translation['school-history-content'];
-                document.querySelector('.column:nth-child(2) h3').innerText = translation['school-ambitions-title'];
-                document.querySelector('.column:nth-child(2) p').innerText = translation['school-ambitions-content'];
+                document.querySelector('.column:nth-child(1) h3').innerText = translation['university-history-title'];
+                document.querySelector('.column:nth-child(1) p').innerText = translation['university-history-content'];
+                document.querySelector('.column:nth-child(2) h3').innerText = translation['university-ambitions-title'];
+                document.querySelector('.column:nth-child(2) p').innerText = translation['university-ambitions-content'];
             }
         });
     </script>
