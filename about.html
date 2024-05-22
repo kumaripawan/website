@@ -3,104 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Solent University</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        header{
-            background-image: url('images/header-background.jpg');
-            color:black;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #4682B4;
-            padding: 10px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        .about-section {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-        .about-section .column {
-            flex: 1;
-            margin: 10px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-        }
-        .about-section .column img {
-            max-width: 100%;
-            height: auto;
-        }
-        .about-section .big-column {
-            flex: 3;
-        }
-        .about-section .small-column {
-            flex: 1;
-        }
-        .introduction-section {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        .introduction-section .text {
-            flex: 3;
-            padding: 10px;
-            background-color:peachpuff;
-            border: 1px solid #ddd;
-            margin-right: 10px;
-        }
-        .introduction-section .image {
-            flex: 1;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-        }
-        .introduction-section .image img {
-            max-width: 100%;
-            height: auto;
-        }
-        footer {
-            background-color: burlywood;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-        }
-        footer .footer-column {
-            flex: 1;
-            margin: 10px;
-        }
-        footer select {
-            margin-top: 10px;
-        }
-    </style>
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="images/QA_Solent_Logo_Red-scaled.jpg" alt="Solent university Logo">
-            <h1>Solent university</h1>
+            <img src="images/QA_Solent_Logo_Red-scaled.jpg" alt="Solent university Logo" style="width: 400px; height: 300px;"> 
         </div>
         <nav>
             <ul>
                 <li><a href="about.html">About</a></li>
-                <li><a href="activities.html">Activities</a></li>
+                <li><a href="Activities.html">Activities</a></li>
                 <li><a href="modules.html">Modules</a></li>
                 <li><a href="registration.html">Registration</a></li>
             </ul>
@@ -109,26 +22,26 @@
 
     <main>
         <section class="about-section">
-            <div class="column light-purple"> <!-- Add the light-purple class here -->
-                <img src="images/images.jpeg" alt="university History Image">
-                <h3>university History</h3>
+            <div class="column light-purple"> 
+                <img src="images/images.jpeg" alt="University History Image">
+                <h3>University History</h3>
                 <p>Solent university was established in 1990 with a mission to provide excellent education to students in the local community. Over the years, it has grown into a well-respected institution known for its commitment to academic excellence and student development.</p>
             </div>
-            <div class="column light-blue"> <!-- Add the light-blue class here -->
-                <img src="images/68463592406.jpeg" alt="university Ambitions Image">
-                <h3>university Ambitions</h3>
+            <div class="column light-blue"> 
+                <img src="images/68463592406.jpeg" alt="University Ambitions Image">
+                <h3>University Ambitions</h3>
                 <p>Our ambition is to foster a learning environment that encourages students to achieve their full potential. We aim to inspire and challenge our students to be innovative thinkers, confident communicators, and responsible global citizens.</p>
             </div>
-            <div class="column light-purple"> <!-- Add the light-purple class here -->
-                <img src="images/Gallery--Southampton-Solent-University-gallery-3.jpg" alt="university Ambitions Image">
-                <h3 id="sample-text-title">Sample Text</h3>
+            <div class="column light-purple"> 
+                <img src="images/Gallery--Southampton-Solent-University-gallery-3.jpg" alt="University Ambitions Image">
+                <h3 id="sample-text-title">Sample </h3>
                 <p id="sample-text-content">Solent university is dedicated to providing a comprehensive education that includes a variety of extracurricular activities, advanced placement courses, and community service opportunities. Our goal is to ensure that every student graduates with the skills and knowledge necessary to succeed in their future endeavors.</p>
             </div>
         </section>
 
         <section class="introduction-section">
             <div class="text">
-                <h3>Solent University Introduction</h3>
+                <h3 class="intro-heading">Solent University Introduction</h3>
                 
                 <p>
                     Solent University is a dynamic and ambitious institution located in the heart of Southampton, UK. Established in 2005, the university has quickly gained a reputation for providing high-quality education and fostering an inclusive and supportive community for its students.
@@ -188,7 +101,7 @@
                 <ul>
                     <li>Study abroad programs</li>
                     <li>International internships</li>
-                    <li>Exchange partnerships with universities worldwide</li>
+                    <li>Exchange partnersips with universities worldwide</li>
                     <li>Global research projects</li>
                 </ul>
                 <p>
@@ -218,44 +131,7 @@
             <div id="footer-visitor-count">Visitor count: <span id="visitor-count">0</span></div>
         </div>
         <div class="footer-column">
-            <p>About</p><!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>My Website</title>
-                <style>
-                    body {
-                        text-align: center;
-                        background-color: #f4f4f4;
-                        font-family: Arial, sans-serif;
-                    }
-                    .visitor-count {
-                        margin-top: 20px;
-                        font-size: 24px;
-                        color: #333;
-                    }
-                </style>
-            </head>
-            <body>
-                <h1>Welcome to My Website</h1>
-                <div class="visitor-count">Visitor Count: <span id="visitor-count">Loading...</span></div>
-                <script>
-                    async function updateVisitorCount() {
-                        try {
-                            const response = await fetch('/visitor-count');
-                            const data = await response.json();
-                            document.getElementById('visitor-count').textContent = data.count;
-                        } catch (error) {
-                            console.error('Error fetching visitor count:', error);
-                        }
-                    }
-            
-                    updateVisitorCount();
-                </script>
-            </body>
-            </html>
-            
+            <p>About</p>
             <select id="footer-language-select">
                 <option value="en">English</option>
                 <option value="ar">Arabic</option>
@@ -277,15 +153,19 @@
     </footer>
 
     <script>
-        // Example function to simulate visitor count
-function updateVisitorCount() {
-    // In a real scenario, you would fetch this count from a server
-    const count = Math.floor(Math.random() * 1000); // Simulating visitor count
-    document.getElementById('visitor-count').textContent = count;
-}
+        // Function to update visitor count
+        async function updateVisitorCount() {
+            try {
+                const response = await fetch('/visitor-count');
+                const data = await response.json();
+                document.getElementById('visitor-count').textContent = data.count;
+            } catch (error) {
+                console.error('Error fetching visitor count:', error);
+            }
+        }
 
-// Call the function to update visitor count
-updateVisitorCount();
+        // Call the function to update visitor count
+        updateVisitorCount();
         const translations = {
             en: {
                 "sample-text-title": "Sample Text",
@@ -341,6 +221,24 @@ updateVisitorCount();
                 document.querySelector('.column:nth-child(2) h3').innerText = translation['university-ambitions-title'];
                 document.querySelector('.column:nth-child(2) p').innerText = translation['university-ambitions-content'];
             }
+        });
+    </script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/api/visitor-count')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const visitorCountElement = document.getElementById('footer-visitor-count');
+                    visitorCountElement.textContent = `Visitor count: ${data.count}`;
+                })
+                .catch(error => {
+                    console.error('Error fetching visitor count:', error);
+                });
         });
     </script>
 </body>

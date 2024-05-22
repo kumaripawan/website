@@ -1,55 +1,53 @@
 const express = require('express');
-const session = require('express-session');
-const crypto = require('crypto');
 const fs = require('fs');
-const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Generate a random secret key
-const secretKey = crypto.randomBytes(32).toString('hex');
-
-app.use(session({
-    secret: secretKey,
-    resave: false,
-    saveUninitialized: true
-}));
-
-// Path to the visitor count file
-const visitorCountFilePath = path.join(__dirname, 'r.visitorcount.json');
-
-// Middleware to serve static files from 'public' directory
+// Middleware to serve static files from the public directory
 app.use(express.static('public'));
 
-// Function to read visitor count from file
-const readVisitorCount = () => {
-    try {
-        const data = fs.readFileSync(visitorCountFilePath, 'utf8');
-        const parsedData = JSON.parse(data);
-        return parsedData.count;
-    } catch (error) {
-        return 0; // If file doesn't exist or there's an error, start with 0
-    }
-};
+// Route to handle requests for the visitor count
+app.get('/api/visitor-count', (req, res) => {
+    // Read the visitor count from a JSON file
+    fs.readFile('r.visitorcount.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading visitor count:', err);
+            res.status(500).json({ error: 'Failed to read visitor count' });
+            return;
+        }
+        const count = JSON.parse(data).count;
+        res.json({ count });
+    });
+});
 
-// Function to write visitor count to file
-const writeVisitorCount = (count) => {
-    const data = JSON.stringify({ count });
-    fs.writeFileSync(visitorCountFilePath, data, 'utf8');
-};
+// Route to increment the visitor count
+app.post('/api/increment-visitor-count', (req, res) => {
+    // Read the current count from the JSON file
+    fs.readFile('r.visitorcount.json', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading visitor count:', err);
+            res.status(500).json({ error: 'Failed to read visitor count' });
+            return;
+        }
+        const count = JSON.parse(data).count;
 
-// Route to increment visitor count and return it
-app.get('/visitor-count', (req, res) => {
-    let count = readVisitorCount();
-    count += 1;
-    writeVisitorCount(count);
-    res.json({ count });
+        // Increment the count
+        const newCount = count + 1;
+
+        // Write the updated count back to the JSON file
+        fs.writeFile('r.visitorcount.json', JSON.stringify({ count: newCount }), (err) => {
+            if (err) {
+                console.error('Error updating visitor count:', err);
+                res.status(500).json({ error: 'Failed to update visitor count' });
+                return;
+            }
+            res.json({ count: newCount });
+        });
+    });
 });
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
-
-console.log('Using secret key:', secretKey);

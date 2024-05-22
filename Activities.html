@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/QA_Solent_Logo_Red-scaled.jpg" alt="Solent university Logo" style="width: 200px; height: 200px;">     
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="registration.html">Registration</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="sub-header">
+        <h1>Welcome to the Activities Page</h1>
+    </div>
+
+    <main>
+        <section class="content-text">
+            <h2>Discover Exciting Activities at Solent University</h2>
+            <p>
+                At Solent University, we believe in providing a holistic educational experience that extends beyond the classroom. Our diverse range of activities offers students numerous opportunities to engage, learn, and grow. Whether you're interested in sports, arts, technology, or community service, there's something for everyone. Participate in our activities to meet new friends, develop new skills, and make lasting memories. Explore our highlighted activities below to see how you can get involved and make the most of your time at Solent University.
+            </p>
+        </section>
+
+        <section class="activity-grid">
+            <div class="activity">
+                <div class="activity-details">
+                    <h3>Sports Clubs</h3>
+                    <p>Join one of our many sports clubs and stay active. From football to swimming, our clubs cater to all interests and skill levels.</p>
+                </div>
+                <img src="images/sports-complex-gallery-1.x416a4569.webp" alt="Sports Clubs">
+            </div>
+            <div class="activity">
+                <div class="activity-details">
+                    <h3>Art and Culture</h3>
+                    <p>Explore your creative side through our art and culture activities, including painting, drama, and music workshops.</p>
+                </div>
+                <img src="images/reclaim-1-1024x768.jpg" alt="Art and Culture">
+            </div>
+            <div class="activity">
+                <div class="activity-details">
+                    <h3>Technology and Innovation</h3>
+                    <p>Engage with the latest in technology and innovation. Join coding clubs, robotics teams, and tech fairs to enhance your skills.</p>
+                </div>
+                <img src="images/Electronics_Solent University.xefc62da6.jpg" alt="Technology and Innovation">
+            </div>
+            <div class="activity">
+                <div class="activity-details">
+                    <h3>Community Service</h3>
+                    <p>Give back to the community through our various volunteer programs and service projects, making a positive impact.</p>
+                </div>
+                <img src="images/engage-space-2.jpg" alt="Community Service">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-column">
+            <p>General enquiries: Telephone: 023 8201 3000</p>
+            <p>Solent University, East Park Terrace, Southampton, SO14 0YN</p>
+            <p>Clearing enquiries: Telephone: 023 8189 2556</p>
+            <div id="footer-visitor-count">Visitor count: <span id="visitor-count">0</span></div>
+        </div>
+        <div class="footer-column">
+            <p>About</p>
+            <select id="footer-language-select">
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+                <option value="zh">Chinese (simplified)</option>
+                <option value="nl">Dutch</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="hi">Hindi</option>
+            </select>
+        </div>
+        <div class="footer-column">
+            <p>Follow Us:</p>
+            <ul>
+                <li><a href="https://www.facebook.com/SolentUniversity/?locale=en_GB" target="_blank">Facebook</a></li>
+                <li><a href="https://x.com/i/flow/login?redirect_after_login=%2FSolentUni" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com/solentuniversity/?hl=en" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Function to update visitor count
+        async function updateVisitorCount() {
+            try {
+                const response = await fetch('/visitor-count');
+                const data = await response.json();
+                document.getElementById('visitor-count').textContent = data.count;
+            } catch (error) {
+                console.error('Error fetching visitor count:', error);
+            }
+        }
+
+        // Call the function to update visitor count
+        updateVisitorCount();
+        
+    </script>
+       <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/api/visitor-count')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const visitorCountElement = document.getElementById('footer-visitor-count');
+                    visitorCountElement.textContent = `Visitor count: ${data.count}`;
+                })
+                .catch(error => {
+                    console.error('Error fetching visitor count:', error);
+                });
+        });
+    </script>
+</body>
+</html>
