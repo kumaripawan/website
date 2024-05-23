@@ -17,7 +17,7 @@ header {
 
 nav {
     background-color: #4682B4;
-    padding: 20px;
+    padding: 30px;
 }
 
 nav ul {
@@ -238,6 +238,19 @@ main {
 body {
     font-family: Arial, sans-serif;
 }
+
+.sub-header{
+height: 60vh;
+width: 100%;
+background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/istockphoto-1360618396-612x612.jpg);
+background-position: center;
+background-size: cover;
+text-align: center;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+}    
 
 .container {
     width: 80%;

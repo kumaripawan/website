@@ -19,78 +19,51 @@
             </ul>
         </nav>
     </header>
-    <div class="sub-header">
-        <h1>Modules</h1>
-    </div>
-        <div class="container">
-            <h1>Module Table</h1>
-            <table id="modulesTable">
-                <thead>
-                    <tr>
-                        <th>ID
-                            <select onchange="sortTable(0)">
-                                <option value="">Sort by ID</option>
-                                <option value="asc">Ascending</option>
-                                <option value="desc">Descending</option>
-                            </select>
-                        </th>
-                        <th>Name
-                            <select onchange="sortTable(1)">
-                                <option value="">Sort by Name</option>
-                                <option value="asc">Ascending</option>
-                                <option value="desc">Descending</option>
-                            </select>
-                        </th>
-                        <th>Semester
-                            <select onchange="sortTable(2)">
-                                <option value="">Sort by Semester</option>
-                                <option value="asc">Ascending</option>
-                                <option value="desc">Descending</option>
-                            </select>
-                        </th>
-                        <th>Description
-                            <select onchange="sortTable(3)">
-                                <option value="">Sort by Description</option>
-                                <option value="asc">Ascending</option>
-                                <option value="desc">Descending</option>
-                            </select>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>COM54</td>
-                        <td>M6</td>
-                        <td>3</td>
-                        <td>ghmgm</td>
-                    </tr>
-                    <tr>
-                        <td>COM42</td>
-                        <td>D4</td>
-                        <td>2</td>
-                        <td>tyrtyr</td>
-                    </tr>
-                    <tr>
-                        <td>COM31</td>
-                        <td>C3</td>
-                        <td>2</td>
-                        <td>ghfh</td>
-                    </tr>
-                    <tr>
-                        <td>COM13</td>
-                        <td>B2</td>
-                        <td>1</td>
-                        <td>sgs</td>
-                    </tr>
-                    <tr>
-                        <td>COM12</td>
-                        <td>N1</td>
-                        <td>1</td>
-                        <td>sadad</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <section class="registration-form">
+        <h1>Registration Form</h1>
+        <form>
+            <div class="form-group">
+                <label for="firstname">First name *:</label>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+            <div class="form-group">
+                <label for="surname">Surname *:</label>
+                <input type="text" id="surname" name="surname" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile number *:</label>
+                <input type="tel" id="mobile" name="mobile" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender *:</label>
+                <div class="gender-options">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password *:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password *:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </section>
     <footer>
         <div class="footer-column">
             <p>General enquiries: Telephone: 023 8201 3000</p>
