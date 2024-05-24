@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration Page</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/rebrandLogo.svg" alt="Solent university Logo" style="width: 350px; height: 350px;"> 
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Activities.html">Activities</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="registration.html">Registration</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="registration-form">
+            <h1>Registration Form</h1>
+            <form>
+                <div class="form-group">
+                    <label for="firstname">First name *:</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class="form-group">
+                    <label for="surname">Surname *:</label>
+                    <input type="text" id="surname" name="surname" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile number *:</label>
+                    <input type="tel" id="mobile" name="mobile" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender *:</label>
+                    <div class="gender-options">
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                        
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                        
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password *:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password *:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-column">
+            <p>General enquiries: Telephone: 023 8201 3000</p>
+            <p>Solent University, East Park Terrace, Southampton, SO14 0YN</p>
+            <p>Clearing enquiries: Telephone: 023 8189 2556</p>
+            <div id="footer-visitor-count">Visitor count: <span id="visitor-count">0</span></div>
+        </div>
+        <div class="footer-column">
+            <p>About</p>
+            <select id="footer-language-select">
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+                <option value="zh">Chinese (simplified)</option>
+                <option value="nl">Dutch</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="hi">Hindi</option>
+            </select>
+        </div>
+        <div class="footer-column">
+            <p>Follow Us:</p>
+            <ul>
+                <li><a href="https://www.facebook.com/SolentUniversity/?locale=en_GB" target="_blank">Facebook</a></li>
+                <li><a href="https://x.com/i/flow/login?redirect_after_login=%2FSolentUni" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com/solentuniversity/?hl=en" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        async function updateVisitorCount() {
+            try {
+                const response = await fetch('/visitor-count');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                const data = await response.json();
+                document.getElementById('visitor-count').textContent = data.count;
+            } catch (error) {
+                console.error('Error fetching visitor count:', error);
+            }
+        }
+
+        updateVisitorCount();
+    </script>
+
+    <script>
+        function sortTable(columnIndex) {
+            const table = document.getElementById('modulesTable');
+            const tbody = table.tBodies[0];
+            const rows = Array.from(tbody.rows);
+            const header = table.tHead.rows[0].cells[columnIndex];
+            const order = header.querySelector('select').value;
+
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.cells[columnIndex].innerText;
+                const cellB = rowB.cells[columnIndex].innerText;
+
+                if (order === 'asc') {
+                    return cellA.localeCompare(cellB);
+                } else if (order === 'desc') {
+                    return cellB.localeCompare(cellA);
+                }
+                return 0;
+            });
+
+            rows.forEach(row => tbody.appendChild(row));
+        }
+    </script>
+       </script>
+       <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://127.0.0.1:3001/api/visitor-count')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Visitor count data:', data);
+                    document.getElementById('visitor-count').textContent = data.visits;
+                })
+                .catch(error => console.error('Error fetching visitor count:', error));
+        });
+    </script>
+</body>
+</html>
